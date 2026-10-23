@@ -7,7 +7,7 @@ class LLM_interface:
         self.api_keys = ''
         self.model_name = model_name
         print("bulid openai client")
-        self.client = OpenAI(api_key="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", base_url="https://api.openai.com/v1")
+        self.client = OpenAI(api_key="", base_url="https://api.openai.com/v1")
         
     def dialog(self, prompt, temperature = -1.0, max_retries=3, timeout=30):
         temperature = 0.8

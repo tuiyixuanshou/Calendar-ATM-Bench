@@ -53,6 +53,9 @@
 - **2026-05-30：** 发布通用智能体基准测试框架（`agent_systems/`）——为 Claude Code、Codex、Pi、OpenCode 和 OpenClaw 提供隔离的、按问题独立运行的运行器。
 - **2026-06-07：** 更新更多 NIAH 结果与分析，包括多种多模态回答模型在 SGM 与 Raw 设置下的对比。
 - **2026-06-12：** 为通用智能体结果新增每次运行的美元成本估算。
+- **2026-07-18：** ATM-Bench-Hard (SGM) 以 [Harbor](https://github.com/harbor-framework/harbor) 数据集形式发布——通过 `harbor run -d atm-bench/atm-bench-hard-sgm`，即可在按问题隔离的 Docker 容器中运行任意 Harbor 智能体，完成全部 31 个困难问题（参见 [`agent_systems/HARBOR.md`](agent_systems/HARBOR.md)）。
+- **2026-08-06：** 新增 Kimi Code、Antigravity（Gemini，经由 Harbor）与火山引擎 coding plan 的结果，智能体表格现已覆盖全部已计价运行。榜单页的完整散点图不再画出 `w/o SGM` 消融运行——这六次运行回答的是另一个问题，却占去了图表 45% 的纵向范围；它们仍保留在所有表格中。
+- **2026-08-11：** 在 README 中加入带帕累托前沿的完整成本 – 得分散点图——所有已计价的智能体运行同处一张图，未经筛选，使「每一价位可买到的最高得分」阶梯与上方的精选视图并列可见。智能体表格同步补齐（Codex / Claude Code / Pi 上的 DeepSeek V4 Flash、Codex 上的 GLM-5.2，以及 Gemini 3.5 Flash low），随后收敛回「每个智能体 × 模型只列最佳档位」的精简视图——全部档位见在线榜单。
 
 <a id="general-purpose-agent-results-zh"></a>
 ## 通用智能体结果
@@ -60,6 +63,24 @@
 > 🏆 **最新结果请查看 [ATM-Bench 在线榜单](https://atmbench.github.io/leaderboard.html)。** 下方静态表格可能落后于最新提交。
 
 ATM-Bench-Hard 上的通用智能体结果如下。QS 分数使用 `gpt-5-mini` 作为主要评判模型。
+
+### 帕累托前沿
+
+<a href="https://atmbench.github.io/leaderboard.html">
+  <img src="docs/images/price-performance-full-light.png" width="100%"
+    alt="ATM-Bench-Hard 得分对运行成本的散点图，包含全部已计价的智能体运行，成本为对数轴（$0.13 至 $50.18），按编程智能体着色。虚线阶梯为帕累托前沿，即在该价位及以下可达的最高得分。前沿从 Pi 上的 DeepSeek V4 Flash（$0.13，36.9%）起，经同一模型在 Claude Code 上的运行、Pi 上的 DeepSeek V4 Pro（$0.44，45.9%）、Doubao Seed 2.1 Turbo、MiniMax M3、GLM-5.2 以及 Kimi K2.7 与 K3 各档，至 Claude Opus 5 (xhigh)（$12.33，58.4%）与 GPT-5.6 Sol (medium)（$12.52，58.8%）。前沿在 $5 以下陡升，之后趋于平缓。">
+</a>
+
+### 成本 – 得分
+
+<a href="https://atmbench.github.io/leaderboard.html">
+  <img src="docs/images/price-performance-light.png" width="100%"
+    alt="ATM-Bench-Hard 得分对运行成本的散点图，成本为对数轴（$0.26 至 $39.74）。折线连接同一模型的各推理强度档位，菱形表示单一配置运行。GPT-5.6 Sol 以 $12.52 取得 58.8%，Claude Opus 5 以 $12.33 取得 58.4%；Kimi K3-256k 以 $5.54 取得 52.5%，Gemini 3.6 Flash 以 $19.96 取得 48.2%，Claude Code 上的 GLM-5.2 以 $3.29 取得 47.7%，Pi 上的 DeepSeek V4 Pro 以 $0.44 取得 45.9%，GPT-5.6 Luna 以 $1.01 取得 42.4%。">
+</a>
+
+这是 2026-06-28 的精选快照，刻意保持简短：其中不含此后新增的模型（DeepSeek V4 Flash、
+Doubao、Kimi K2.7 与 K3、GLM-5.2、MiniMax M3、Gemini、LongCat），也不含推理档位扫描。
+上方图表为最新结果，全部运行请见[在线榜单](https://atmbench.github.io/leaderboard.html)。
 
 | 智能体 | 模型 | QS (Acc.) ↑ | 总 Token 数 ↓ | 成本 (USD) ↓ |
 |--------|------|-------------:|---------------:|------------:|
@@ -86,13 +107,14 @@ ATM-Bench-Hard 上的通用智能体结果如下。QS 分数使用 `gpt-5-mini` 
 | Pi | Qwen3.6-27B | 38.5% | 7.1M | $2.45 |
 | Pi | Qwen3.6-27B (w/o SGM) | 16.6% | 20.8M | $6.29 |
 
-> **成本**为一次完整 ATM-Bench-Hard 运行（31 个问题）的估算 USD API 费用，依据每次调用的 token 用量（未缓存输入、缓存写入、缓存读取、输出）按各提供商公开标价（≤200K 上下文档位，含缓存折扣）计算。
+> **成本**为一次完整 ATM-Bench-Hard 运行（31 个问题）的 API 等价估算，使用保存的每次调用 token 计数与 Tokdash 内置的标准短上下文费率计算。该数值不代表 Codex 订阅费用。
 
 * 除非模型标签注明 `max` 或 `xhigh` 等 reasoning effort，编程智能体均使用默认配置。
+* 同一模型在不同框架下可相差数个百分点——GLM-5.2 在 Claude Code 下为 47.7%，在 Pi 下为 45.1%；Kimi K2.7 Code 在 Claude Code、Pi、OpenCode 下分别为 47.0% / 39.2% / 37.8%。此处框架与模型是一个整体，而非两个独立因素。
 
 编程智能体在 ATM-Bench-Hard 上仍然表现不佳，但显著优于各种智能体记忆基线。
 
-要复现这些结果，请参见 [`agent_systems/`](agent_systems/README.md) 下的通用智能体测试框架，它为 Claude Code、Codex、Pi、OpenCode 和 OpenClaw 提供隔离的、按问题独立运行的运行器。
+要复现这些结果，请参见 [`agent_systems/`](agent_systems/README.md) 下的通用智能体测试框架，它为 Claude Code、Codex、Pi、OpenCode 和 OpenClaw 提供隔离的、按问题独立运行的运行器。表中另有两个框架不在其中：Kimi Code 通过自带 CLI 运行；Antigravity（即 Gemini 各行）通过 [Harbor](agent_systems/HARBOR.md) 在已发布的 `atm-bench-hard-sgm` 数据集上运行。
 
 <a id="memory-system-baseline-results-zh"></a>
 ## 记忆系统基线结果

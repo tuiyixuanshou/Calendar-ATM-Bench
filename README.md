@@ -50,6 +50,9 @@
 - **2026-05-30:** Released the General-Purpose Agent benchmark harness (`agent_systems/`) — isolated, per-question runners for Claude Code, Codex, Pi, OpenCode, and OpenClaw.
 - **2026-06-07:** Updated with more NIAH results and analysis, including the SGM vs. Raw comparison across various multimodal answerers.
 - **2026-06-12:** Added per-run USD cost estimates to the General-Purpose Agent results.
+- **2026-07-18:** ATM-Bench-Hard (SGM) released as a [Harbor](https://github.com/harbor-framework/harbor) dataset — run any Harbor agent against the 31 hard questions in per-question Docker isolation with `harbor run -d atm-bench/atm-bench-hard-sgm` (see [`agent_systems/HARBOR.md`](agent_systems/HARBOR.md)).
+- **2026-08-06:** Added Kimi Code, Antigravity (Gemini, via Harbor) and Volcano Engine coding-plan results, taking the Agent table to every priced run. The leaderboard's full scatter now leaves out the `w/o SGM` ablations, which were spending 45% of the chart's vertical range on six runs that answer a different question; they remain in every table.
+- **2026-08-11:** Added the full price-performance scatter with the Pareto frontier to the READMEs — every priced agent run on one chart, uncurated, so the staircase of best-score-per-dollar is visible next to the curated effort-ladder view. The Agent table caught up with it (DeepSeek V4 Flash on Codex, Claude Code and Pi, GLM-5.2 on Codex, Gemini 3.5 Flash low) and then went back to one row per agent × model at its best effort tier — the leaderboard carries every tier.
 
 <a id="General-Purpose-Agent-results"></a>
 ## 🤖 General-Purpose Agent Results
@@ -57,6 +60,28 @@
 > 🏆 **The most up-to-date numbers live on the [ATM-Bench Live Leaderboard](https://atmbench.github.io/leaderboard.html).** The static snapshot below may lag behind new submissions.
 
 General-Purpose Agent results on ATM-Bench-Hard are summarized below. The QS score here uses `gpt-5-mini` as the primary judge.
+
+
+
+### Pareto frontier
+
+<a href="https://atmbench.github.io/leaderboard.html">
+  <img src="docs/images/price-performance-full-light.png" width="100%"
+    alt="Scatter of ATM-Bench-Hard score against run cost for every priced agent run, on a log cost axis from $0.13 to $50.18, coloured by coding harness. A dashed staircase marks the Pareto frontier — the best score reachable at or below each price. The frontier runs from DeepSeek V4 Flash on Pi at 36.9% for $0.13, through the same model on Claude Code, DeepSeek V4 Pro on Pi at 45.9% for $0.44, Doubao Seed 2.1 Turbo, MiniMax M3, GLM-5.2 and the Kimi K2.7 and K3 tiers, to Claude Opus 5 (xhigh) at 58.4% for $12.33 and GPT-5.6 Sol (medium) at 58.8% for $12.52. It rises steeply below $5 and is almost flat above it.">
+</a>
+
+### Price vs. Performance
+
+<a href="https://atmbench.github.io/leaderboard.html">
+  <img src="docs/images/price-performance-light.png" width="100%"
+    alt="ATM-Bench-Hard score plotted against run cost on a log axis from $0.26 to $39.74. Lines join each model's reasoning-effort tiers; diamonds are single-configuration runs. GPT-5.6 Sol peaks at 58.8% for $12.52 and Claude Opus 5 reaches 58.4% for $12.33; Kimi K3-256k reaches 52.5% for $5.54, Gemini 3.6 Flash 48.2% for $19.96, GLM-5.2 under Claude Code 47.7% for $3.29, DeepSeek V4 Pro under Pi 45.9% for $0.44, and GPT-5.6 Luna 42.4% for $1.01.">
+</a>
+
+
+A curated snapshot from 2026-06-28, kept short on purpose — it does not include the
+models added since (DeepSeek V4 Flash, Doubao, Kimi K2.7 and K3, GLM-5.2, MiniMax M3,
+Gemini, LongCat) or the reasoning-effort sweeps. The charts above are current, and every
+run is on the [live leaderboard](https://atmbench.github.io/leaderboard.html).
 
 | Agent | Model | QS (Acc.) ↑ | Total Tokens ↓ | Cost (USD) ↓ |
 |-------|-------|------------:|---------------:|------------:|
@@ -83,13 +108,14 @@ General-Purpose Agent results on ATM-Bench-Hard are summarized below. The QS sco
 | Pi | Qwen3.6-27B | 38.5% | 7.1M | $2.45 |
 | Pi | Qwen3.6-27B (w/o SGM) | 16.6% | 20.8M | $6.29 |
 
-> **Cost** is the estimated USD API price for one full ATM-Bench-Hard run (31 questions), computed from per-call token usage (uncached input, cache write, cache read, output) at each provider's public list price (≤200K-context tier, cache-aware).
+> **Cost** is the API-equivalent estimate for one full ATM-Bench-Hard run (31 questions), calculated from saved per-call token counters with Tokdash's bundled standard short-context rates. It does not represent Codex subscription charges.
 
 * Coding agents use their default configuration unless the model label states a reasoning effort such as `max` or `xhigh`.
+* The same model can differ by several points across harnesses — GLM-5.2 scores 47.7% under Claude Code and 45.1% under Pi, Kimi K2.7 Code 47.0% / 39.2% / 37.8% under Claude Code, Pi and OpenCode. Harness and model are one system here, not two independent factors.
 
 The coding agents still struggle on ATM-Bench-Hard, although they perform much better than various agentic memory baselines.
 
-To reproduce these runs, see the General-Purpose Agent harness under [`agent_systems/`](agent_systems/README.md), which provides isolated, per-question runners for Claude Code, Codex, Pi, OpenCode, and OpenClaw.
+To reproduce these runs, see the General-Purpose Agent harness under [`agent_systems/`](agent_systems/README.md), which provides isolated, per-question runners for Claude Code, Codex, Pi, OpenCode, and OpenClaw. Two harnesses in the table are not in that set: Kimi Code runs through its own CLI, and Antigravity (the Gemini rows) runs under [Harbor](agent_systems/HARBOR.md) against the published `atm-bench-hard-sgm` dataset.
 
 <a id="memory-system-baseline-results"></a>
 ## 🧠 Memory-System Baseline Results

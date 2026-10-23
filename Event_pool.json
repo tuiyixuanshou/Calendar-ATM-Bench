@@ -1,0 +1,254 @@
+{
+"work-conference_expo_summit": {
+"choice_bias": 2.0,
+"bio_require": 0.5,
+"bio_consumption": -0.25,
+"psycho_consumption": -0.25,
+"Weight": [0.2, 0.1, 0.2, 0.3, 0.3, 0.7, 0.6, 0.6, 0.5, 0.7, 0.6, 0.4],
+"Detail": []
+},
+"work-workshop_training_awareness": {
+"choice_bias": 2.0,
+"bio_require": 0.5,
+"bio_consumption": -0.24,
+"psycho_consumption": -0.2,
+"Weight": [0.2, 0.1, 0.3, 0.3, 0.3, 0.7, 0.6, 0.7, 0.4, 0.5, 0.6, 0.3],
+"Detail": []
+},
+"work-seminar_lecture_academic_talk": {
+"choice_bias": 2.0,
+"bio_require": 0.4,
+"bio_consumption": -0.2,
+"psycho_consumption": -0.3,
+"Weight": [0.1, 0.1, 0.2, 0.2, 0.2, 0.7, 0.7, 0.6, 0.3, 0.5, 0.5, 0.3],
+"Detail": []
+},
+"work-administrative_operations_logistics": {
+"choice_bias": 2.0,
+"bio_require": 0.3,
+"bio_consumption": -0.2,
+"psycho_consumption": -0.1,
+"Weight": [0.1, 0.1, 0.3, 0.2, 0.4, 0.5, 0.1, 0.8, 0.3, 0.3, 0.8, 0.2],
+"Detail": []
+},
+"work-recruitment_job_opportunity_interview": {
+"choice_bias": 2.0,
+"bio_require": 0.6,
+"bio_consumption": -0.4,
+"psycho_consumption": -0.8,
+"Weight": [0.2, 0.1, 0.2, 0.6, 0.5, 0.8, 0.3, 0.5, 0.4, 0.9, 0.7, 0.3],
+"Detail": []
+},
+"work-election_committee_governance": {
+"choice_bias": 2.0,
+"bio_require": 0.5,
+"bio_consumption": -0.2,
+"psycho_consumption": -0.4,
+"Weight": [0.1, 0.1, 0.2, 0.4, 0.5, 0.6, 0.2, 0.8, 0.6, 0.8, 0.8, 0.6],
+"Detail": []
+},
+"work-finance_transaction_payment_registration": {
+"choice_bias": 2.0,
+"bio_require": 0.2,
+"bio_consumption": -0.1,
+"psycho_consumption": -0.1,
+"Weight": [0.1, 0.1, 0.2, 0.2, 0.6, 0.4, 0.0, 0.8, 0.1, 0.3, 0.7, 0.1],
+"Detail": []
+},
+"work-competition_contest": {
+"choice_bias": 2.0,
+"bio_require": 0.7,
+"bio_consumption": -0.5,
+"psycho_consumption": -0.8,
+"Weight": [0.3, 0.2, 0.2, 0.6, 0.4, 0.9, 0.5, 0.5, 0.3, 0.9, 0.7, 0.4],
+"Detail": []
+},
+"work-feedback_survey_peer_review": {
+"choice_bias": 2.0,
+"bio_require": 0.3,
+"bio_consumption": -0.1,
+"psycho_consumption": -0.2,
+"Weight": [0.1, 0.1, 0.2, 0.4, 0.3, 0.6, 0.2, 0.7, 0.4, 0.5, 0.6, 0.2],
+"Detail": []
+},
+"work-networking_matchmaking_business_development": {
+"choice_bias": 2.0,
+"bio_require": 0.5,
+"bio_consumption": -0.2,
+"psycho_consumption": -0.3,
+"Weight": [0.2, 0.1, 0.2, 0.5, 0.4, 0.7, 0.4, 0.5, 0.7, 0.8, 0.6, 0.6],
+"Detail": []
+},
+"work-policy_announcement_compliance_audit": {
+"choice_bias": 2.0,
+"bio_require": 0.3,
+"bio_consumption": -0.1,
+"psycho_consumption": -0.1,
+"Weight": [0.1, 0.1, 0.3, 0.2, 0.7, 0.4, 0.0, 1.0, 0.2, 0.3, 0.9, 0.2],
+"Detail": []
+},
+"work-access_account_verification": {
+"choice_bias": 2.0,
+"bio_require": 0.1,
+"bio_consumption": 0.0,
+"psycho_consumption": 0.0,
+"Weight": [0.0, 0.0, 0.2, 0.1, 0.7, 0.3, 0.0, 0.9, 0.1, 0.2, 0.6, 0.1],
+"Detail": []
+},
+
+"social-conference_expo_trade_show": {
+"choice_bias": 1.0,
+"bio_require": 0.5,
+"bio_consumption": -0.3,
+"psycho_consumption": -0.2,
+"Weight": [0.2, 0.1, 0.2, 0.4, 0.3, 0.5, 0.6, 0.5, 0.6, 0.7, 0.4, 0.6],
+"Detail": []
+},
+"social-casual_social_mixer_party": {
+"choice_bias": 1.0,
+"bio_require": 0.4,
+"bio_consumption": -0.3,
+"psycho_consumption": 0.3,
+"Weight": [0.2, 0.1, 0.1, 0.7, 0.2, 0.2, 0.4, 0.2, 0.8, 0.7, 0.2, 0.9],
+"Detail": []
+},
+"social-religious_services_observances": {
+"choice_bias": 1.0,
+"bio_require": 0.3,
+"bio_consumption": -0.1,
+"psycho_consumption": 0.4,
+"Weight": [0.1, 0.1, 0.3, 0.5, 0.3, 0.3, 0.2, 0.8, 0.8, 0.5, 0.5, 0.9],
+"Detail": []
+},
+"social-clubs_societies_membership_recruitment": {
+"choice_bias": 1.0,
+"bio_require": 0.4,
+"bio_consumption": -0.3,
+"psycho_consumption": 0.1,
+"Weight": [0.2, 0.1, 0.1, 0.5, 0.2, 0.5, 0.5, 0.4, 0.7, 0.7, 0.4, 0.9],
+"Detail": []
+},
+"social-formal_dinner_banquet": {
+"choice_bias": 1.0,
+"bio_require": 0.4,
+"bio_consumption": 0.2,
+"psycho_consumption": 0.2,
+"Weight": [0.3, 0.1, 0.2, 0.5, 0.2, 0.3, 0.2, 0.5, 0.7, 0.8, 0.4, 0.8],
+"Detail": []
+},
+
+"physiological-food_related": {
+"choice_bias": 1.0,
+"bio_require": 0.2,
+"bio_consumption": 0.8,
+"psycho_consumption": 0.3,
+"Weight": [0.9, 0.2, 0.7, 0.4, 0.2, 0.1, 0.2, 0.2, 0.2, 0.1, 0.1, 0.1],
+"Detail": []
+},
+"physiological-physical_activity_exercise": {
+"choice_bias": 1.0,
+"bio_require": 0.7,
+"bio_consumption": -0.7,
+"psycho_consumption": 0.4,
+"Weight": [0.9, 0.4, 0.9, 0.4, 0.3, 0.7, 0.2, 0.2, 0.2, 0.4, 0.3, 0.1],
+"Detail": []
+},
+"physiological-human_sleep_rest": {
+"choice_bias": 1.0,
+"bio_require": 0.1,
+"bio_consumption": 1.0,
+"psycho_consumption": 0.8,
+"Weight": [0.8, 0.4, 1.0, 0.1, 0.3, 0.2, 0.0, 0.1, 0.1, 0.0, 0.1, 0.0],
+"Detail": []
+},
+
+"leisure-scenic_nature_viewing": {
+"choice_bias": 1.0,
+"bio_require": 0.3,
+"bio_consumption": -0.1,
+"psycho_consumption": 0.6,
+"Weight": [0.3, 0.1, 0.4, 0.6, 0.1, 0.1, 0.8, 0.1, 0.2, 0.2, 0.1, 0.1],
+"Detail": []
+},
+"leisure-urban_exploration_sightseeing": {
+"choice_bias": 1.0,
+"bio_require": 0.5,
+"bio_consumption": -0.5,
+"psycho_consumption": 0.4,
+"Weight": [0.4, 0.2, 0.3, 0.5, 0.3, 0.2, 0.8, 0.2, 0.3, 0.4, 0.1, 0.2],
+"Detail": []
+},
+"leisure-travel_experience": {
+"choice_bias": 1.0,
+"bio_require": 0.6,
+"bio_consumption": -0.6,
+"psycho_consumption": 0.3,
+"Weight": [0.5, 0.2, 0.3, 0.6, 0.4, 0.3, 0.8, 0.3, 0.4, 0.5, 0.2, 0.3],
+"Detail": []
+},
+"leisure-wildlife_animal_observation": {
+"choice_bias": 1.0,
+"bio_require": 0.3,
+"bio_consumption": -0.2,
+"psycho_consumption": 0.5,
+"Weight": [0.3, 0.1, 0.3, 0.5, 0.2, 0.1, 0.7, 0.1, 0.4, 0.2, 0.1, 0.1],
+"Detail": []
+},
+"leisure-shopping_consumer_experience": {
+"choice_bias": 1.0,
+"bio_require": 0.4,
+"bio_consumption": -0.3,
+"psycho_consumption": 0.2,
+"Weight": [0.3, 0.1, 0.2, 0.5, 0.3, 0.2, 0.4, 0.3, 0.2, 0.6, 0.1, 0.2],
+"Detail": []
+},
+"leisure-arts_culture_music_performance": {
+"choice_bias": 1.0,
+"bio_require": 0.3,
+"bio_consumption": -0.2,
+"psycho_consumption": 0.6,
+"Weight": [0.2, 0.1, 0.2, 0.7, 0.1, 0.2, 0.8, 0.2, 0.4, 0.5, 0.1, 0.4],
+"Detail": []
+},
+"leisure-recreational_sports_outdoor_activity": {
+"choice_bias": 1.0,
+"bio_require": 0.7,
+"bio_consumption": -0.7,
+"psycho_consumption": 0.5,
+"Weight": [0.8, 0.3, 0.8, 0.5, 0.3, 0.5, 0.5, 0.2, 0.4, 0.5, 0.2, 0.3],
+"Detail": []
+},
+"leisure-survey_feedback": {
+"choice_bias": 1.0,
+"bio_require": 0.1,
+"bio_consumption": 0.0,
+"psycho_consumption": -0.2,
+"Weight": [0.0, 0.0, 0.1, 0.2, 0.1, 0.3, 0.1, 0.5, 0.2, 0.3, 0.3, 0.1],
+"Detail": []
+},
+"leisure-astronomical_observation": {
+"choice_bias": 1.0,
+"bio_require": 0.2,
+"bio_consumption": -0.1,
+"psycho_consumption": 0.6,
+"Weight": [0.2, 0.1, 0.2, 0.6, 0.1, 0.1, 0.9, 0.1, 0.2, 0.2, 0.1, 0.1],
+"Detail": []
+},
+"leisure-pet_related": {
+"choice_bias": 1.0,
+"bio_require": 0.3,
+"bio_consumption": -0.1,
+"psycho_consumption": 0.5,
+"Weight": [0.4, 0.2, 0.4, 0.7, 0.2, 0.2, 0.4, 0.2, 0.7, 0.2, 0.5, 0.4],
+"Detail": []
+},
+
+"emotional-mental_wellbeing_support": {
+"choice_bias": 1.0,
+"bio_require": 0.2,
+"bio_consumption": 0.0,
+"psycho_consumption": 0.8,
+"Weight": [0.3, 0.3, 0.6, 0.9, 0.5, 0.3, 0.1, 0.2, 0.7, 0.2, 0.4, 0.5],
+"Detail": []
+}
+}
